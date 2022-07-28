@@ -24,23 +24,25 @@ export function trendingMovies() {
         return data
     });
 }
-export function MoreInfo() {
-  fetch(`https://api.themoviedb.org/3/movie/438148?api_key=${MYKEY}&language=UK`).then(r => {
+export function MoreInfo(id) {
+  console.log(id , '1234')
+
+  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${MYKEY}&language=UK`).then(r => {
     if(!r.ok){
       return Notiflix.Notify.info('проблемы с сервером');
     }
     return r.json()
   })
-  // .then(r=>{
-  //   const data = r.map(dmap=>{
-  //     const d = {
-  //       title:dmap.title,
-  //       rating:dmap.popularity,
-  //       releaseDate:dmap.release_date,
-  //       genres:dmap.genres,
-  //     }
-  //     return d;
-  //   })
-  //   return data;
-  // })
+  .then(r=>{
+    const data = {
+        title:r.title,
+        rating:r.popularity,
+        releaseDate:r.release_date,
+        genres:r.genres,
+        overview:r.overview,
+        posterPath:r.poster_path,
+    }
+    return data;
+})
+
 }
