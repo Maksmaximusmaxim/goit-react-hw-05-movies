@@ -25,7 +25,7 @@ export function trendingMovies() {
     });
 }
 export function MoreInfo(id) {
-  console.log(id, '1234');
+  
 
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${MYKEY}&language=UK`
@@ -48,9 +48,10 @@ export function MoreInfo(id) {
       return data;
     });
 }
-export function getCredits() {
+export function getCredits(id) {
+  console.log(id, '1234');
   return fetch(
-    `https://api.themoviedb.org/3/movie/361743/credits?api_key=${MYKEY}&language=UK`
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${MYKEY}&language=UK`
   )
     .then(r => {
       if (!r.ok) {
@@ -70,9 +71,9 @@ export function getCredits() {
     )
     
 }
-export function getReviews() {
+export function getReviews(id) {
   return fetch(
-    `https://api.themoviedb.org/3/movie/361743/reviews?api_key=${MYKEY}&language=UK&page=1`
+    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${MYKEY}&language=UK&page=1`
   )
     .then(r => {
       if (!r.ok) {

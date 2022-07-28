@@ -8,7 +8,7 @@ export function MoreInfoFilms() {
   useEffect(() => {
     MoreInfo(movieId).then(setData);
   }, [movieId]);
-  console.log(data);
+  
 //   const m = data.genres.map(r => r.name);
 //   const s = m.join();
  

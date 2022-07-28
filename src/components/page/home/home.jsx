@@ -4,7 +4,7 @@ import { HomeItem } from './homeitem';
 export function Home() {
   const [movie, setMovie] = useState([]);
   useEffect(() => {
-    trendingMovies().then(setMovie).then(console.log);
+    trendingMovies().then(setMovie);
   }, []);
 
   return (
