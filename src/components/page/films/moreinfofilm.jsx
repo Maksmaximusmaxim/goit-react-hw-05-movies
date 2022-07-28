@@ -1,6 +1,6 @@
 import { MoreInfo } from 'components/api';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 
 export function MoreInfoFilms() {
   const [data, setData] = useState(null);
@@ -29,6 +29,10 @@ export function MoreInfoFilms() {
           <p>{data.genres.map(r => r.name).join()}</p>
         </div>
       )}
+      <hr/>
+      <NavLink to='cast'>Актеры</NavLink>
+      <NavLink to='reviews'>Отзывы</NavLink>
+      <Outlet/>
     </>
   );
 }

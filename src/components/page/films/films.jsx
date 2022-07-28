@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-console.log(Outlet)
+
 export function Films() {
   return (
     <>
