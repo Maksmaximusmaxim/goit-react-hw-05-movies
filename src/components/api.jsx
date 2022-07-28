@@ -68,7 +68,7 @@ export function getCredits() {
         return data;
       })
     )
-    .then(console.log);
+    
 }
 export function getReviews() {
   return fetch(

@@ -32,6 +32,7 @@ export function MoreInfoFilms() {
       <hr/>
       <NavLink to='cast'>Актеры</NavLink>
       <NavLink to='reviews'>Отзывы</NavLink>
+      <hr/>
       <Outlet/>
     </>
   );
