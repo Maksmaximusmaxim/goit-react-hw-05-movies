@@ -9,8 +9,8 @@ export function Reviews() {
     getReviews(movieId).then(setReviews);
   }, [movieId]);
   console.log(reviews);
-  const fedback = reviews.results.length;
-  if (fedback === 0) {
+
+  if (!reviews) {
     return <h1>отзывов нет</h1>;
   }
 
