@@ -8,11 +8,9 @@ export function Reviews() {
   useEffect(() => {
     getReviews(movieId).then(setReviews);
   }, [movieId]);
-  console.log(reviews);
 
-  if (!reviews) {
-    return <h1>отзывов нет</h1>;
-  }
+
+  
 
   return (
     <ul>
