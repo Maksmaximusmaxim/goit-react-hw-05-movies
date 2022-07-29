@@ -4,7 +4,7 @@ import { FilmForm } from './filmsForm';
 import { getMoviesByKeyword } from 'components/api';
 import { FilmLink } from './filmsLink';
 export function Films() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const search = searchParams.get('name');
   console.log(search);
   const [data, setData] = useState(null);
