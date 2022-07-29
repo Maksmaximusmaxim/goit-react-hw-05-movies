@@ -1,5 +1,5 @@
 import { getReviews } from 'components/api';
-// import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { RewiewsItem } from 'components/page/reviews/rewiewsItem';
@@ -12,8 +12,8 @@ export function Reviews() {
 console.log(reviews)
 
   if(reviews.results.length ===0){
-   return (<h1>отзывов нет</h1>)
-    // return Notiflix.Notify.info('отзывов нет');
+   
+    return Notiflix.Notify.info('отзывов нет');
   }
 
   return (
