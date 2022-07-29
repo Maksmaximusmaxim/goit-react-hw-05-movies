@@ -8,17 +8,16 @@ export function MoreInfoFilms() {
   useEffect(() => {
     MoreInfo(movieId).then(setData);
   }, [movieId]);
-  
-//   const m = data.genres.map(r => r.name);
-//   const s = m.join();
- 
 
+  //   const m = data.genres.map(r => r.name);
+  //   const s = m.join();
+
+  const link = 'https://image.tmdb.org/t/p/w500';
   return (
     <>
-      
       {data && (
         <div>
-          <img src="" alt="фото фильма" />
+          <img src={`${link}${data.posterPath}`} alt="фото фильма" />
           <h1>
             {data.title}({data.releaseDate})
           </h1>
@@ -29,11 +28,11 @@ export function MoreInfoFilms() {
           <p>{data.genres.map(r => r.name).join()}</p>
         </div>
       )}
-      <hr/>
-      <NavLink to='cast'>Актеры</NavLink>
-      <NavLink to='reviews'>Отзывы</NavLink>
-      <hr/>
-      <Outlet/>
+      <hr />
+      <NavLink to="cast">Актеры</NavLink>
+      <NavLink to="reviews">Отзывы</NavLink>
+      <hr />
+      <Outlet />
     </>
   );
 }

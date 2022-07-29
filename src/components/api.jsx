@@ -1,4 +1,5 @@
 import Notiflix from 'notiflix';
+import PropTypes from 'prop-types';
 const MYKEY = '948166b3059358327aeb7a534b796286';
 export function trendingMovies() {
   return fetch(
@@ -25,8 +26,6 @@ export function trendingMovies() {
     });
 }
 export function MoreInfo(id) {
-  
-
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${MYKEY}&language=UK`
   )
@@ -65,11 +64,11 @@ export function getCredits(id) {
           character: d.character,
           name: d.original_name,
           photo: d.profile_path,
+          id: d.id,
         };
         return data;
       })
-    )
-    
+    );
 }
 export function getReviews(id) {
   return fetch(
@@ -87,4 +86,39 @@ export function getReviews(id) {
       };
       return data;
     });
+}
+export function getMoviesByKeyword(search) {
+ 
+  return fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${MYKEY}&language=UK&query=${search}&page=1&include_adult=false`
+  ).then(r => {
+    if(!r.ok){
+      return Notiflix.Notify.info('проблемы с сервером');
+    }
+    return r.json();
+  }).then(r => {
+    const data = r.results.map(
+    mapd => {
+      const d = {
+        id:mapd.id,
+        title:mapd.original_title,
+      }
+      return d;
+    }
+    )
+   return data; 
+  })
+}
+
+MoreInfo.propTypes = {
+  id: PropTypes.number
+}
+getCredits.propTypes = {
+  id: PropTypes.number
+}
+getReviews.propTypes = {
+  id: PropTypes.number
+}
+getMoviesByKeyword.propTypes = {
+  search: PropTypes.string
 }

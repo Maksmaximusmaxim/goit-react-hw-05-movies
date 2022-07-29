@@ -11,7 +11,9 @@ export function Home() {
     <>
       <ul>
         {movie &&
-          movie.map(d => <HomeItem key={d.id} id={d.id} img={d.img} title={d.title} />)}
+          movie.map(d => (
+            <HomeItem key={d.id} id={d.id} img={d.img} title={d.title} />
+          ))}
       </ul>
     </>
   );
