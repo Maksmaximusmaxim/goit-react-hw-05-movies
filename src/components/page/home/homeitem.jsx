@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import css from './home.module.css'
 export function HomeItem({ title, id }) {
   return (
     <li>
-      <NavLink to={`films/${id}`}>{title}</NavLink>
+      <Link className={css.Link} to={`films/${id}`}>{title}</Link>
     </li>
   );
 }

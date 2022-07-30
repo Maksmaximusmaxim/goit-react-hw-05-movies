@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCredits } from 'components/api';
 import { CastItem } from 'components/page/cast/castItem';
-
+import List from '@mui/material/List';
 export function Cast() {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
@@ -12,7 +12,7 @@ export function Cast() {
   }, [movieId]);
   const link = 'https://image.tmdb.org/t/p/w200';
   return (
-    <ul>
+    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {cast &&
         cast.map(data => (
           <CastItem
@@ -22,6 +22,7 @@ export function Cast() {
             name={data.name}
           />
         ))}
-    </ul>
+  
+   </List>
   );
 }

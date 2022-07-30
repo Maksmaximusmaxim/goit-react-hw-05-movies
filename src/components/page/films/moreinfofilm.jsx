@@ -1,7 +1,6 @@
 import { MoreInfo } from 'components/api';
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
-
 export function MoreInfoFilms() {
   const [data, setData] = useState(null);
   const { movieId } = useParams();

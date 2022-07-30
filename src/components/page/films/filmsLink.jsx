@@ -1,9 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import css from './film.module.css'
 export function FilmLink({ id, title }) {
   return (
     <li>
-      <NavLink to={`${id}`}>{title}</NavLink>
+      <Link className={css.Link} to={`${id}`}>{title}</Link>
     </li>
   );
 }

@@ -1,0 +1,17 @@
+.navLink{
+    display: inline-block;
+    color: white;
+text-decoration: none;
+  width: 80px;
+ margin-top: 10px;
+ margin-bottom: 10px;
+  font-weight: 900;
+}
+nav{
+  display: flex;
+  background: #1e90ff;
+  margin-bottom: 10px;
+  height: 50px;
+  justify-content: center;
+  
+}
