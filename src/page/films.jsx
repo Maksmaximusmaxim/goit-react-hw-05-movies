@@ -1,8 +1,8 @@
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FilmForm } from '../films/filmsForm';
+import { FilmForm } from '../components/films/filmsForm';
 import { getMoviesByKeyword } from 'components/api';
-import { FilmLink } from '../films/filmsLink';
+import { FilmLink } from '../components/films/filmsLink';
 
 export function Films() {
   const [searchParams] = useSearchParams();

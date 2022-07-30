@@ -3,7 +3,7 @@ import { lazy, Suspense } from 'react';
 
 const importComponent = (importComponentName, path) =>
   lazy(() => {
-    return import(`./page/${path}`).then(module => {
+    return import(`page/${path}`).then(module => {
       return { default: module[importComponentName] };
     });
   });
@@ -17,7 +17,7 @@ const MoreInfoFilms = importComponent(
 const Cast = importComponent('Cast', 'Cast'.toLowerCase());
 const Reviews = importComponent('Reviews', 'Reviews'.toLowerCase());
 const FilmLink = lazy(() => {
-  return import('./films/filmsLink').then(module => {
+  return import('components/films/filmsLink').then(module => {
     return { default: module.FilmLink };
   });
 });
