@@ -1,42 +1,54 @@
 import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
-import { Navigation } from './page/navigation/navigation';
-
-import { Home } from './page/home/home';
-import { Films } from './page/films/films';
-import { Erorr } from './page/erorr/erorr';
-import {MoreInfoFilms} from 'components/page/films/moreinfofilm';
-import { Cast } from './page/cast/cast';
-import { Reviews } from './page/reviews/reviews';
-import { FilmLink } from './page/films/filmsLink';
-
+const importComponent = (importComponentName, path) =>
+  lazy(() => {
+    return import(`./page/${path}`).then(module => {
+      return { default: module[importComponentName] };
+    });
+  });
+const Home = importComponent('Home', 'Home'.toLowerCase());
+const Films = importComponent('Films', 'Films'.toLowerCase());
+const Erorr = importComponent('Erorr', 'Erorr'.toLowerCase());
+const MoreInfoFilms = importComponent(
+  'MoreInfoFilms',
+  'MoreInfoFilm'.toLowerCase()
+);
+const Cast = importComponent('Cast', 'Cast'.toLowerCase());
+const Reviews = importComponent('Reviews', 'Reviews'.toLowerCase());
+const FilmLink = lazy(() => {
+  return import('./films/filmsLink').then(module => {
+    return { default: module.FilmLink };
+  });
+});
+const Navigation = lazy(() => {
+  return import('components/navigation/navigation').then(module => {
+    return { default: module.Navigation };
+  });
+});
 
 export const App = () => {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<Home />} />
-          {/* <Route path="films" element={<Films />} >
-            <Route path=":movieId" element={<MoreInfoFilms/>}/>
-          </Route> */}
-                    <Route path="films" element={<Films />} >
-                      <Route path="films/:id" element={<FilmLink />}/>
-                      <Route path="films/:movieId" element={<MoreInfoFilms/>}/>
-                      </Route>
-                    
-                    
-            <Route path="films/:movieId" element={<MoreInfoFilms/>}>
-              
-                <Route path='cast' element={<Cast/>}/>
-        
-              
-              <Route path='reviews' element={<Reviews/>}/>
+      <Suspense fallback={<div>загружаем</div>}>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route path="films" element={<Films />}>
+              <Route path="films/:id" element={<FilmLink />} />
+              <Route path="films/:movieId" element={<MoreInfoFilms />} />
             </Route>
-          
-          <Route path="*" element={<Erorr />} />
-        </Route>
-      </Routes>
+
+            <Route path="films/:movieId" element={<MoreInfoFilms />}>
+              <Route path="cast" element={<Cast />} />
+
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+
+            <Route path="*" element={<Erorr />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </div>
   );
 };

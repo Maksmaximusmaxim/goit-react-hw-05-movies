@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
-import css from 'components/page/navigation/navigation.module.css'
+import css from 'components/navigation/navigation.module.css'
 export function Navigation() {
   return (
     <>

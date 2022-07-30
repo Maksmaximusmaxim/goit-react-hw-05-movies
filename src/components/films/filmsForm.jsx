@@ -10,6 +10,7 @@ export function FilmForm() {
     setSearchParams('');
   };
   const updateQueryString = name => {
+ 
     const nextParams = name !== '' ? { name } : '';
 
     setSearchParams(nextParams);

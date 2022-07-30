@@ -1,6 +1,6 @@
 import { trendingMovies } from 'components/api';
 import { useState, useEffect } from 'react';
-import { HomeItem } from './homeitem';
+import { HomeItem } from '../home/homeitem';
 export function Home() {
   const [movie, setMovie] = useState([]);
   useEffect(() => {

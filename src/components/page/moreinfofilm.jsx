@@ -5,6 +5,9 @@ export function MoreInfoFilms() {
   const [data, setData] = useState(null);
   const { movieId } = useParams();
   useEffect(() => {
+    if(movieId === ''){
+      console.log('123123231')
+    }
     MoreInfo(movieId).then(setData);
   }, [movieId]);
 

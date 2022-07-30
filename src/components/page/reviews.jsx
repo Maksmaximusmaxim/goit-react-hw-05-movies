@@ -2,7 +2,7 @@ import { getReviews } from 'components/api';
 // import Notiflix from 'notiflix';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { RewiewsItem } from 'components/page/reviews/rewiewsItem';
+import { RewiewsItem } from 'components/reviews/rewiewsItem';
 
 export function Reviews() {
   const { movieId } = useParams();

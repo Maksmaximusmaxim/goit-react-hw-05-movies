@@ -1,22 +1,22 @@
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FilmForm } from './filmsForm';
+import { FilmForm } from '../films/filmsForm';
 import { getMoviesByKeyword } from 'components/api';
-import { FilmLink } from './filmsLink';
+import { FilmLink } from '../films/filmsLink';
 
 export function Films() {
   const [searchParams] = useSearchParams();
   const search = searchParams.get('name');
-  console.log(search);
+
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    if (!search) {
+    if (search === "" || !search) {
       return;
     }
     getMoviesByKeyword(search).then(setData);
   }, [search]);
-  console.log(data);
+
   return (
     <>
       <FilmForm />

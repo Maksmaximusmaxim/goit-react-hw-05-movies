@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCredits } from 'components/api';
-import { CastItem } from 'components/page/cast/castItem';
+import { CastItem } from 'components/cast/castItem';
 import List from '@mui/material/List';
 export function Cast() {
   const [cast, setCast] = useState([]);
