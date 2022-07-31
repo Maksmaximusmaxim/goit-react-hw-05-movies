@@ -1,27 +1,29 @@
 import { MoreInfo } from 'components/api';
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams, useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import { NavLink, Outlet, useParams, useLocation  } from 'react-router-dom';
+import css from 'components/moreinfo.module.css'
 export function MoreInfoFilms() {
   const [data, setData] = useState(null);
   const { movieId } = useParams();
+  console.log(movieId)
   useEffect(() => {
     if (movieId === '') {
       return;
     }
     MoreInfo(movieId).then(setData);
   }, [movieId]);
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
+ const location = useLocation()
+
+
 
   const link = 'https://image.tmdb.org/t/p/w500';
   return (
     <>
       {data && (
         <div>
-          <Button variant="contained" onClick={goBack} type="button">
+          <NavLink className={css.link}   to={location.state?.from ?? "/"} >
             назад
-          </Button>
+          </NavLink>
           <br />
           <img src={`${link}${data.posterPath}`} alt="фото фильма" />
           <h1>

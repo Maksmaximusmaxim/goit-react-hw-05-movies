@@ -6,7 +6,7 @@ import List from '@mui/material/List';
 export function Cast() {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
-
+console.log(movieId)
   useEffect(() => {
     getCredits(movieId).then(setCast);
   }, [movieId]);

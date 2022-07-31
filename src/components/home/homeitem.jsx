@@ -1,22 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link   } from 'react-router-dom';
+import { Link , useLocation  } from 'react-router-dom';
 import css from './home.module.css'
 export function HomeItem({ title, id }) {
 
  
 
-  // function usePageViews() {
-  //   let location = useLocation();
-  //   useEffect(() => {
-  //     ga.send(["pageview", location.pathname]);
-  //   }, [location]);
-  // }
-
+const location = useLocation()
+console.log(location)
   return (
     <li>
       <Link className={css.Link} to={
-        `films/${id}`}
+        `films/${id}`} state={{from:location.pathname}}
         >{title}</Link>
     </li>
   );
