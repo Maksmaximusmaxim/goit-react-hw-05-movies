@@ -7,18 +7,20 @@ export function FilmForm() {
 
   const onsubmit = e => {
     e.preventDefault();
-    setSearchParams('');
+    console.log(productName, 'der');
   };
+
   const updateQueryString = name => {
- 
     const nextParams = name !== '' ? { name } : '';
 
     setSearchParams(nextParams);
+    if (productName) {
+      localStorage.setItem('search', JSON.stringify(productName));
+    }
   };
   const productName = searchParams.get('name') ?? '';
 
   return (
-  
     <Box
       onSubmit={onsubmit}
       component="form"
@@ -54,6 +56,5 @@ export function FilmForm() {
         поиск
       </Button>
     </Box>
-   
   );
 }

@@ -7,7 +7,7 @@ export function HomeItem({ title, id }) {
  
 
 const location = useLocation()
-console.log(location)
+
   return (
     <li>
       <Link className={css.Link} to={
