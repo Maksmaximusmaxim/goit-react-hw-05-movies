@@ -37,8 +37,8 @@ console.log(location)
         </div>
       )}
       <hr />
-      <NavLink to="cast">Актеры</NavLink>
-      <NavLink to="reviews">Отзывы</NavLink>
+      <NavLink state={{from:location.state?.from}} to="cast">Актеры</NavLink>
+      <NavLink state={{from:location.state?.from}} to="reviews">Отзывы</NavLink>
       <hr />
       <Outlet />
     </>

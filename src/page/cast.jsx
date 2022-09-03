@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
 import { getCredits } from 'components/api';
 import { CastItem } from 'components/cast/castItem';
 import List from '@mui/material/List';
 export function Cast() {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
+  // const location = useLocation()
 console.log(movieId)
   useEffect(() => {
     getCredits(movieId).then(setCast);
