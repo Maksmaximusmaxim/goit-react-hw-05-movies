@@ -13,7 +13,7 @@ export function MoreInfoFilms() {
     MoreInfo(movieId).then(setData);
   }, [movieId]);
  const location = useLocation()
-
+console.log(location)
 
 
   const link = 'https://image.tmdb.org/t/p/w500';
@@ -21,7 +21,7 @@ export function MoreInfoFilms() {
     <>
       {data && (
         <div>
-          <NavLink className={css.link}   to={location.state?.from ?? "/"} >
+          <NavLink className={css.link}   to={location.state?.from ?? '/'} >
             назад
           </NavLink>
           <br />

@@ -14,9 +14,7 @@ export function FilmForm() {
     const nextParams = name !== '' ? { name } : '';
 
     setSearchParams(nextParams);
-    if (productName) {
-      localStorage.setItem('search', JSON.stringify(productName));
-    }
+  
   };
   const productName = searchParams.get('name') ?? '';
 

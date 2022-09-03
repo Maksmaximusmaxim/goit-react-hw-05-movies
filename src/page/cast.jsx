@@ -12,7 +12,7 @@ console.log(movieId)
   }, [movieId]);
   const link = 'https://image.tmdb.org/t/p/w200';
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100%', maxWidth: 500, bgcolor: 'background.paper' }}>
       {cast &&
         cast.map(data => (
           <CastItem

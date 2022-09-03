@@ -6,7 +6,7 @@ const location = useLocation()
 
   return (
     <li>
-      <Link className={css.Link} to={`${id}`} state={{from:location.pathname}}  >{title}</Link>
+      <Link className={css.Link} to={`${id}`} state={{from:location}}  >{title}</Link>
     </li>
   );
 }

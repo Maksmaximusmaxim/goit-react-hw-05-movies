@@ -6,8 +6,7 @@ import { FilmLink } from '../components/films/filmsLink';
 
 export function Films() {
   const [searchParams] = useSearchParams();
-  const search = searchParams.get('name') || localStorage.getItem('search');
-
+  const search = searchParams.get('name') ;
   const [data, setData] = useState(null);
 
   useEffect(() => {
